@@ -78,7 +78,7 @@ public class subarray {
             }
             ms=Math.max(cs,ms);
         }
-        System.err.println("maximum subarray is : "+ms);
+        System.out.println("maximum subarray is : "+ms);
     }
     public static void main(String[] args) {
         int arr[] = { -2, -3,4,-1,-2,1,5,-3 };
