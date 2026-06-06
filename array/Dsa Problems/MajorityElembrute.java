@@ -17,9 +17,30 @@ public class MajorityElembrute {
         }
         return -1;
     }
+    
+    public static int majorityElementoptimize(int[] nums) {
+        int count=0;
+        int candidate=0;
+        for(int num:nums){
+            if(count==0){
+                candidate=num;
+            }
+
+            if(candidate==num){
+                count++;
+            }
+            else{
+                count --;
+            }
+        }
+        return candidate;
+    }
+
     public static void main(String[] args) {
         int nums[]={3,2,3};
-        int totalelem=majorityElement(nums);
+        // int totalelem=majorityElement(nums);
+        int totalelem=majorityElementoptimize(nums);
+
         System.out.println(totalelem);
     }
 }
