@@ -1,8 +1,8 @@
 public class largestelement {
     public static int largest(int n[]){
-        int size=n.length;
         int max=Integer.MIN_VALUE;
-        for(int i=0;i<size;i++){
+        int size=n.length;
+        for(int i = 0; i< size; i++){
             if(n[i]>max){
                 max=n[i];
             }
