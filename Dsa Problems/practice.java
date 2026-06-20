@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class practice {
@@ -153,10 +154,20 @@ public class practice {
             end--;
         }
     }
-
+    public static int secondlargest(int arr[]){
+        Arrays.sort(arr);
+        int n=arr.length;
+        for(int i = n-1; i >0; i--){
+            if(arr[i]!=arr[i-1]){
+                return arr[i-1];
+            }
+        }
+        return -1;
+    }
     public static void main(String[] args) {
         int arr[] = { 0, 1, 2,3,4,5 };
-        int arr2[] = { 1, 2, 3, 5 };
+        System.out.print(secondlargest(arr));
+        // int arr2[] = { 1, 2, 3, 5 };
         // int n = arr.length;
         // leftrotate(arr);
         // for(int i = 0; i < arr.length; i++){
@@ -165,7 +176,7 @@ public class practice {
         // rotatedplace(arr, 3);
         // rotdplace(arr, 1,3);
         // movezerotendop(arr);
-        unionopt(arr, arr2);
+        // unionopt(arr, arr2);
         
         // for(int i = 0; i < n; i++){
         // System.out.print(arr[i]+" ");

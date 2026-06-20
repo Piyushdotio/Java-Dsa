@@ -39,8 +39,29 @@ public class longestsubarraysum {
         return longest;
     }
 
+    public static int optimal(int arr[],int k){
+        int n=arr.length;
+        int right=0,left=0;
+        int sum=arr[0];
+        int longest=0;
+        while(right<n){
+           while(left<=right && sum>k){
+                sum-=arr[left];
+                left++;
+           }
+           if(sum==k){
+            longest=Math.max( longest,right-left+1);
+           }
+           right++;
+           if(right<n){
+                sum+=arr[right];
+           }
+        }
+        return longest;
+    }
+
     public static void main(String[] args) {
         int arr[] = { 10, 5, 2, 7, 1, 9 };
-        System.out.println(better(arr, 15));
+        System.out.println(optimal(arr, 15));
     }
 }
