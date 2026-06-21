@@ -22,14 +22,31 @@ public class twosum {
             if(map.containsKey(required)){
                 return new int[]{map.get(required), i};
             }
+            map.put(arr[i], i);
+        }
+        return new int[]{-1,-1};
+    }
+    public static int[] optimal(int arr[],int target){
+        int r=arr.length-1;
+        int l=0;
+        while(l<r){
+            int sum=arr[l]+arr[r];
+            if(sum==target){
+                return new int[]{l,r};
+            }
+            if(sum<target){
+                l++;
+            }
+            if(sum>target){
+                r--;
+            }
         }
         return new int[]{-1,-1};
     }
 
-
     public static void main(String[] args) {
         int arr[] = { 2, 7, 11, 15 };
-        int ans[] = brute(arr, 9);
+        int ans[] = better(arr, 9);
 
         System.out.println(ans[0] + " " + ans[1]);
     }
