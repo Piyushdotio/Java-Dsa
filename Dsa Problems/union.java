@@ -57,6 +57,6 @@ public class union {
         int arr2[] = { 1, 2, 7 };
         ArrayList<Integer> result=arrunionoptimal(arr, arr2);
         System.out.print(result);
-
+        
     }
 }
