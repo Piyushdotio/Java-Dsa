@@ -164,9 +164,99 @@ public class practice {
         }
         return -1;
     }
+    
+    
+    public static void sortbetter(int arr[]){
+        int n=arr.length;
+        int c1=0;
+        int c2=0;
+        int c3=0;
+        for(int i = 0; i < n; i++){
+            if(arr[i]==0){
+                c1++;
+            }
+            else if(arr[i]==1){
+                c2++;
+            }
+            else{
+                c3++;
+            }
+        }
+        for(int i = 0; i < c1; i++){
+            arr[i]=0;
+        }
+        for(int i = c2; i < c1+c2; i++){
+            arr[i]=1;
+        }
+        for(int i = c2+c3; i < n; i++){
+            arr[i]=2;
+        }
+    }
+    
+    
+    public static void sortoptimal(int arr[]){
+        int n=arr.length;
+        int low=0;
+        int mid=0;
+        int high=arr.length-1;
+        for(int i = 0; i < n; i++){
+            if(arr[mid]==0){
+                int temp=arr[mid];
+                arr[mid]=arr[low];
+                arr[low]=temp;
+                mid++;
+                low++;
+            }
+            else if(arr[mid]==1){
+                mid++;
+            }
+            else{
+                int temp=arr[mid];
+                arr[mid]=arr[high];
+                arr[high]=temp;
+                high--;
+                
+            }
+        }
+    }
+    
+    
+    public static int moorevoting(int arr[]){
+        int n=arr.length;
+        int count=0;
+        int candidate=0;
+        for(int i = 0; i < n; i++){
+            if(count==0){
+                candidate=arr[i];
+            }
+            if(candidate==arr[i]){
+                count++;
+            }
+            if(arr[i]!=candidate){
+               count--;
+            }
+        }
+        count=0;
+        for(int i = 0; i < n; i++){
+            if(arr[i]==candidate){
+                count++;
+            }
+            if(count>n/2){
+                return candidate;
+            }
+        }
+        return -1;
+    }
     public static void main(String[] args) {
-        int arr[] = { 0, 1, 2,3,4,5 };
-        System.out.print(secondlargest(arr));
+        int arr[] = {7, 0, 0, 1, 7, 7, 2, 7, 7};
+        int candidate=moorevoting(arr);
+        System.out.println(candidate);
+        // int n=arr.length;
+        // sortoptimal(arr);
+        // for(int i = 0; i < n; i++){
+        //     System.out.println(arr[i]);
+        // }
+        // System.out.print(secondlargest(arr));
         // int arr2[] = { 1, 2, 3, 5 };
         // int n = arr.length;
         // leftrotate(arr);
