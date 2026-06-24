@@ -1,5 +1,3 @@
-package Arrays;
-
 public class nextPermutation {
     public static void reverse(int arr[], int left, int right) {
 
@@ -17,18 +15,19 @@ public class nextPermutation {
     public static void optimal(int arr[]) {
         int n = arr.length;
         int index = -1;
-        int value = 0;
         for (int i = n - 2; i >= 0; i--) {
             if (arr[i] < arr[i + 1]) {
                 index = i;
                 break;
+
             }
 
         }
         if (index == -1) {
             reverse(arr, 0, n - 1);
+            return ;
         }
-        for (int i = n - 1; i > 0; i--) {
+        for (int i = n - 1; i > index; i--) {
             if (arr[index] < arr[i]) {
                 int temp = arr[i];
                 arr[i] = arr[index];
