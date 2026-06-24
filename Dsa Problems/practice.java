@@ -109,35 +109,35 @@ public class practice {
         System.out.print(set);
     }
 
-    public static void unionopt(int arr[],int arr2[]){
-        int n=arr.length;
-        int m=arr2.length;
-        int i=0;
-        int j=0;
-        ArrayList<Integer> list=new ArrayList<>();
-        while(i < n&&j < m){
-            if(arr[i]<=arr2[j]){
-                if(list.isEmpty()||list.get(list.size()-1)!=arr[i]){
+    public static void unionopt(int arr[], int arr2[]) {
+        int n = arr.length;
+        int m = arr2.length;
+        int i = 0;
+        int j = 0;
+        ArrayList<Integer> list = new ArrayList<>();
+        while (i < n && j < m) {
+            if (arr[i] <= arr2[j]) {
+                if (list.isEmpty() || list.get(list.size() - 1) != arr[i]) {
+                    list.add(arr[i]);
+                }
+                i++;
+            }
+
+            else {
+                if (list.isEmpty() || list.get(list.size() - 1) != arr2[j]) {
+                    list.add(arr2[j]);
+                }
+                j++;
+            }
+        }
+        while (i < n) {
+            if (list.isEmpty() || list.get(list.size() - 1) != arr[i]) {
                 list.add(arr[i]);
             }
             i++;
-            }
-            
-            else{
-            if(list.isEmpty()||list.get(list.size()-1)!=arr2[j]){
-                list.add(arr2[j]);
-            }
-            j++;
         }
-        }
-        while(i<n){
-            if(list.isEmpty()||list.get(list.size()-1)!=arr[i]){
-                list.add(arr[i]);
-            }
-            i++;
-        }
-        while(j<m){
-            if(list.isEmpty()||list.get(list.size()-1)!=arr2[j]){
+        while (j < m) {
+            if (list.isEmpty() || list.get(list.size() - 1) != arr2[j]) {
                 list.add(arr2[j]);
             }
             j++;
@@ -154,107 +154,148 @@ public class practice {
             end--;
         }
     }
-    public static int secondlargest(int arr[]){
+
+    public static int secondlargest(int arr[]) {
         Arrays.sort(arr);
-        int n=arr.length;
-        for(int i = n-1; i >0; i--){
-            if(arr[i]!=arr[i-1]){
-                return arr[i-1];
+        int n = arr.length;
+        for (int i = n - 1; i > 0; i--) {
+            if (arr[i] != arr[i - 1]) {
+                return arr[i - 1];
             }
         }
         return -1;
     }
-    
-    
-    public static void sortbetter(int arr[]){
-        int n=arr.length;
-        int c1=0;
-        int c2=0;
-        int c3=0;
-        for(int i = 0; i < n; i++){
-            if(arr[i]==0){
+
+    public static void sortbetter(int arr[]) {
+        int n = arr.length;
+        int c1 = 0;
+        int c2 = 0;
+        int c3 = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 0) {
                 c1++;
-            }
-            else if(arr[i]==1){
+            } else if (arr[i] == 1) {
                 c2++;
-            }
-            else{
+            } else {
                 c3++;
             }
         }
-        for(int i = 0; i < c1; i++){
-            arr[i]=0;
+        for (int i = 0; i < c1; i++) {
+            arr[i] = 0;
         }
-        for(int i = c2; i < c1+c2; i++){
-            arr[i]=1;
+        for (int i = c2; i < c1 + c2; i++) {
+            arr[i] = 1;
         }
-        for(int i = c2+c3; i < n; i++){
-            arr[i]=2;
+        for (int i = c2 + c3; i < n; i++) {
+            arr[i] = 2;
         }
     }
-    
-    
-    public static void sortoptimal(int arr[]){
-        int n=arr.length;
-        int low=0;
-        int mid=0;
-        int high=arr.length-1;
-        for(int i = 0; i < n; i++){
-            if(arr[mid]==0){
-                int temp=arr[mid];
-                arr[mid]=arr[low];
-                arr[low]=temp;
+
+    public static void sortoptimal(int arr[]) {
+        int n = arr.length;
+        int low = 0;
+        int mid = 0;
+        int high = arr.length - 1;
+        for (int i = 0; i < n; i++) {
+            if (arr[mid] == 0) {
+                int temp = arr[mid];
+                arr[mid] = arr[low];
+                arr[low] = temp;
                 mid++;
                 low++;
-            }
-            else if(arr[mid]==1){
+            } else if (arr[mid] == 1) {
                 mid++;
-            }
-            else{
-                int temp=arr[mid];
-                arr[mid]=arr[high];
-                arr[high]=temp;
+            } else {
+                int temp = arr[mid];
+                arr[mid] = arr[high];
+                arr[high] = temp;
                 high--;
-                
+
             }
         }
     }
-    
-    
-    public static int moorevoting(int arr[]){
-        int n=arr.length;
-        int count=0;
-        int candidate=0;
-        for(int i = 0; i < n; i++){
-            if(count==0){
-                candidate=arr[i];
+
+    public static int moorevoting(int arr[]) {
+        int n = arr.length;
+        int count = 0;
+        int candidate = 0;
+        for (int i = 0; i < n; i++) {
+            if (count == 0) {
+                candidate = arr[i];
             }
-            if(candidate==arr[i]){
+            if (candidate == arr[i]) {
                 count++;
             }
-            if(arr[i]!=candidate){
-               count--;
+            if (arr[i] != candidate) {
+                count--;
             }
         }
-        count=0;
-        for(int i = 0; i < n; i++){
-            if(arr[i]==candidate){
+        count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == candidate) {
                 count++;
             }
-            if(count>n/2){
+            if (count > n / 2) {
                 return candidate;
             }
         }
         return -1;
     }
+
+    public static int maximumsum(int arr[]){
+        int n=arr.length;
+        int currsum=0;;
+        int maxsum=Integer.MIN_VALUE;
+        for(int i = 0; i < n; i++){
+            currsum=0;
+            for(int j = i; j < n; j++){
+                currsum+=arr[j];
+                maxsum=Math.max(maxsum,currsum);
+            }
+        }
+        return maxsum;
+    }
+    public static int[] kadanesalgo(int arr[]){
+        int temp=0;
+        int start=0;
+        int end=0;
+        int n=arr.length;
+        int currsum=0;
+        int maxsum=Integer.MIN_VALUE;
+        for(int i = 0; i < n; i++){
+            currsum+=arr[i];
+            if(currsum==0){
+                 temp=i;
+            }
+            if(currsum>maxsum){
+                maxsum=currsum;
+                start=temp;
+                end=i;
+            }
+        
+
+            if(currsum<0){
+                currsum+=0;
+            }
+        }
+        return new int[]{start,end};
+    }
+
     public static void main(String[] args) {
-        int arr[] = {7, 0, 0, 1, 7, 7, 2, 7, 7};
-        int candidate=moorevoting(arr);
-        System.out.println(candidate);
-        // int n=arr.length;
+        int arr[] = { 2, 3, 5, -2, 7, -4};
+        int n=arr.length;
+        int temp[]=kadanesalgo(arr);
+        int start=temp[0];
+        int end=temp[1];
+        for(int i = start; i <=end; i++){
+            System.out.print(arr[i]+",");
+        }
+        // int candidate = moorevoting(arr);
+        // System.out.println(candidate);
+
         // sortoptimal(arr);
         // for(int i = 0; i < n; i++){
-        //     System.out.println(arr[i]);
+        // System.out.println(arr[i]);
         // }
         // System.out.print(secondlargest(arr));
         // int arr2[] = { 1, 2, 3, 5 };
@@ -267,7 +308,7 @@ public class practice {
         // rotdplace(arr, 1,3);
         // movezerotendop(arr);
         // unionopt(arr, arr2);
-        
+
         // for(int i = 0; i < n; i++){
         // System.out.print(arr[i]+" ");
         // }
