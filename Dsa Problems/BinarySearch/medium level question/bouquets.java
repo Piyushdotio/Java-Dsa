@@ -7,6 +7,7 @@ public class bouquets{
         }
         return ans;
     }
+    // formula for ceil(a/b)=(a+b-1)/b
     public static boolean totalbouquet(int arr[],int day,int m,int k){
         int count=0;
         int bouquets=0;
