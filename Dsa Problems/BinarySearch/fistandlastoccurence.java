@@ -18,7 +18,7 @@ public class fistandlastoccurence {
 
         return new int[]{first, last};
     }
-}
+
     public static int lowerbound(int arr[], int k) {// k is target
         int n = arr.length;
         int low = 0;

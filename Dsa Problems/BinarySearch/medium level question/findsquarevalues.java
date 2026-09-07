@@ -1,4 +1,4 @@
-import java.util.*;
+
 public class findsquarevalues {
     public static int brute(int value){
         int ans=(int)Math.sqrt(value);
